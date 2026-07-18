@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header, section, footer {
+  padding: 20px;
+  text-align: center;
+}
+
+.img {
+  margin: 0 auto;
+  display: block;
+}

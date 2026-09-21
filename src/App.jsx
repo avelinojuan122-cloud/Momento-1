@@ -1,17 +1,24 @@
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import Footer from './components/Footer';
-import fcf from './assets/Mascota.jpg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { FavoritosProvider } from './Context/FavoritosContext';
+import { Layout } from './components/Layout';
+import { Inicio } from './Pages/Inicio';
+import { Catalogo } from './Pages/Catalogo';
+import { Favoritos } from './Pages/Favoritos';
 import './App.css';
 
-function App() {
+export function App() {
   return (
-    <div>
-      <img src={fcf} alt="Mascota" style={{ width: '200px' }} />
-      <Header />
-      <HeroSection />
-      <Footer />
-    </div>
+    <FavoritosProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Inicio />} />
+            <Route path="catalogo" element={<Catalogo />} />
+            <Route path="favoritos" element={<Favoritos />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </FavoritosProvider>
   );
 }
 

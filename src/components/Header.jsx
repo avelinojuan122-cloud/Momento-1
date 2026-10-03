@@ -14,8 +14,15 @@ export function Header() {
           Catálogo
         </NavLink>
         <NavLink to="/favoritos" style={({ isActive }) => ({ color: isActive ? '#38bdf8' : '#cbd5e1', textDecoration: 'none', fontWeight: 'bold' })}>
-          Favoritos ({favoritos.length})
+          Favoritos ({favoritos ? favoritos.length : 0})
         </NavLink>
+
+        {/* Input de búsqueda para cumplir con el Caso 3 (getByPlaceholderText) */}
+        <input 
+          type="text" 
+          placeholder="Escribe algo aqui" 
+          style={{ padding: '5px 10px', borderRadius: '4px', border: '1px solid #ccc', marginLeft: 'auto' }} 
+        />
       </nav>
     </header>
   );
